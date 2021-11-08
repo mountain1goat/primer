@@ -12,5 +12,66 @@
     margin: 5px;
     display: flex;
     flex-direction:column;
-    
+    border: 1px rgb(235, 104, 104) solid;
+}
+
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(129, 129, 129, 0.562);
+    display: flex;
+}
+
+.modal-wrapper.hide {
+    display: none;
+}
+.modal-active {
+    display: flex;
+}
+
+.card-modal {
+    margin: auto;
+    position: relative;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    max-width: 300px;
+    min-width: 200px;
+    min-height: 200px;
+    background-color: honeydew;
+    border-radius: 3px;
+}
+
+.card-modal-left, .card-modal-right {
+    width: 50%;
+}
+
+.card-modal-img {
+    height: 100%;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    overflow: hidden;
+}
+
+.card-modal-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 40px;
+}
+.modal-close {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color .3s ease-in;
+}
+
+.modal-close:hover {
+    color: red;
 }
