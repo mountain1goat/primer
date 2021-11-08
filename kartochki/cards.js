@@ -45,9 +45,9 @@ function createCard({image, head, body}){
 function cropText(text, length = 20){
     return text.substr(0, length)+"..."
 }
-
+//убираю скобки showinfo()
 document.querySelectorAll('.btn-info').forEach(btn => {
-    btn.addEventListener('click', showinfo())
+    btn.addEventListener('click', showinfo)
 });
 
 const modalWrapper = document.querySelector('.modal-wrapper');
