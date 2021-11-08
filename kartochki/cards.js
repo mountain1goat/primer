@@ -22,26 +22,53 @@ let cards = [
 let cardsCont = document.querySelector('.cards');
 createManyCards(cards, cardsCont);
 
-function createManyCards(array){
+function createManyCards(array, cont){
     array.forEach(item => {
-        cont.insertAdjacentHTML('beforEend', createCard(item))
+        cont.insertAdjacentHTML('beforeend', createCard(item))
     });
 }
 
-function createCard(item){
+function createCard({image, head, body}){
     return `
         <article class="card">
-        <img src="${item.image}" alt="${item.head}">
-        <h2>${item.head}</h2>
-        <p>${cropText(item.body)}</p>
-        <div class="btns">
-            <button id="btn1">Убрать</button>
-            <button id="btn2">Подробнее</button>
-        </div>
+            <img src="${image}" alt="${head}">
+            <h2>${head}</h2>
+            <p>${cropText(body)}</p>
+            <div class="btns">
+                <button id="btn-delete">Убрать</button>
+                <button id="btn-info">Подробнее</button>
+            </div>
         </article>    
     `
 }
 
 function cropText(text, length = 20){
     return text.substr(0, length)+"..."
+}
+
+document.querySelectorAll('.btn-info').forEach(btn => {
+    btn.addEventListener('click', showinfo())
+});
+
+const modalWrapper = document.querySelector('.modal-wrapper');
+const btnClose = document.querySelector('.modal-close');
+
+btnClose.addEventListener('click', closeModal())
+
+modalWrapper.addEventListener('click', e =>{
+    if(e.target === e.currentTarget){
+        closeModal();
+    }
+    console.log(e.target);
+    console.log(e.currentTarget);
+})
+
+function showinfo(e) {
+
+
+    modalWrapper.classList.remove('hide');
+}
+
+function closeModal(e) {
+    modalWrapper.classList.add('hide');
 }
